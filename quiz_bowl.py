@@ -45,7 +45,7 @@ dianas_payload={
 }    
 
 register_user(dianas_payload)
-print(response.text)                    # why yellowed out?
+print(response.text)                    # "response is not defined"?
 
 
 # Authentication - Basic Auth
@@ -232,12 +232,17 @@ def delete_user(token):
         url + endpoint_user,
         headers = headers
     )
-    return response.text
+    return response.text()
 
+
+print(delete_user(name_of_user['token']))
+
+""" 
+Example:
 print(delete_user(jim['token']))
 
 # check:
-# jim = login_user('jimb@eam7.com','123')
+# jim = login_user('jimb@eam7.com','123')"""
 
     # My Questions
 # Deletes a question with the id <id> if the token owner is the author of the question
